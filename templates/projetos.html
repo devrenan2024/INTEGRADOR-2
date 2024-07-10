@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Projetos - Meu Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Meus Projetos</h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('sobre') }}">Sobre mim</a>
+        <a href="{{ url_for('contato') }}">Contato</a>
+        <a href="{{ url_for('blog') }}">Blog</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('admin') }}">Admin</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section class="section">
+        <h2>Meus Projetos</h2>
+        <div class="project">
+            <h3>Projeto de Alan Turing</h3>
+            <p>O projeto de Alan Turing foi pioneiro no campo da computação teórica, culminando na concepção da Máquina de Turing.</p>
+            <p>A Máquina de Turing é um dispositivo abstrato que formaliza o conceito de algoritmo e foi fundamental para o desenvolvimento dos computadores modernos.</p>
+            <img src="https://www.pstu.org.br/wp-content/uploads/2021/06/WhatsApp-Image-2021-06-07-at-00.05.04.jpeg" alt="Imagem do projeto de Alan Turing">
+            <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Meu Blog Pessoal</p>
+</footer>
+
+</body>
+</html>

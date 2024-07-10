@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Turing - Meu Blog Pessoal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Alan Turing</h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('sobre') }}">Sobre mim</a>
+        <a href="{{ url_for('projetos_page') }}">Meus Projetos</a>
+        <a href="{{ url_for('contato') }}">Contato</a>
+        <a href="{{ url_for('blog') }}">Blog</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('admin') }}">Admin</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section class="section">
+        <h2>Alan Turing</h2>
+        <p>Alan Mathison Turing (1912-1954) foi um matemático, lógico, criptoanalista e cientista da computação britânico. Ele é amplamente considerado como o pai da ciência da computação e da inteligência artificial.</p>
+        <p>Turing desempenhou um papel crucial durante a Segunda Guerra Mundial ao liderar os esforços para decifrar os códigos secretos nazistas, trabalhando na equipe que desenvolveu a máquina Enigma, um dispositivo crucial na quebra dos códigos alemães.</p>
+        <p>Além de seus feitos na guerra, Turing é famoso por formular o conceito teórico de um dispositivo de computação universal, conhecido hoje como a Máquina de Turing. Esse modelo teórico tornou-se a base para o desenvolvimento dos computadores modernos.</p>
+        <p>Infelizmente, Turing enfrentou perseguições por sua homossexualidade na década de 1950, o que resultou em sua condenação criminal. Ele morreu em 1954, aos 41 anos, em circunstâncias trágicas. Sua genialidade e contribuições para a ciência da computação só foram plenamente reconhecidas muito tempo depois de sua morte.</p>
+        <p>Alan Turing é lembrado não apenas por suas contribuições técnicas, mas também por sua coragem, visão e humanidade, sendo um ícone para cientistas e defensores dos direitos LGBTQ+ em todo o mundo.</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Meu Blog Pessoal</p>
+</footer>
+
+</body>
+</html>

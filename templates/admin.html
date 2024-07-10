@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Meu Blog Pessoal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Painel de Administração</h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('sobre') }}">Sobre mim</a>
+        <a href="{{ url_for('projetos_page') }}">Meus Projetos</a>
+        <a href="{{ url_for('contato') }}">Contato</a>
+        <a href="{{ url_for('blog') }}">Blog</a>
+        {% if session.get('logged_in') %}
+            <a href="{{ url_for('admin') }}">Admin</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+        {% endif %}
+    </nav>
+</header>
+
+<div class="container">
+    <section class="section">
+        <h2>Gerenciar Blog</h2>
+        <form action="{{ url_for('adicionar_post') }}" method="POST" class="blog-form">
+            <input type="text" name="title" placeholder="Título do Post" required>
+            <textarea name="content" placeholder="Conteúdo do Post" required></textarea>
+            <input type="url" name="image_url" placeholder="URL da Imagem (opcional)">
+            <input type="url" name="video_url" placeholder="URL do Vídeo (opcional)">
+            <button type="submit">Adicionar Post</button>
+        </form>
+        <div id="posts" class="posts-container">
+            {% for post in posts %}
+            <div class="post">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content }}</p>
+                {% if post.image_url %}
+                <img src="{{ post.image_url }}" alt="Imagem do Post">
+                {% endif %}
+                {% if post.video_url %}
+                <iframe width="560" height="315" src="{{ post.video_url }}" frameborder="0" allowfullscreen></iframe>
+                {% endif %}
+                <div class="post-links">
+                    <a href="{{ url_for('edit', post_id=post.id) }}">Editar</a>
+                    <a href="{{ url_for('delete', post_id=post.id) }}">Deletar</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section class="section">
+        <h2>Gerenciar Projetos</h2>
+        <form action="{{ url_for('adicionar_projeto') }}" method="POST" class="project-form">
+            <input type="text" name="nome" placeholder="Nome do Projeto" required>
+            <textarea name="descricao" placeholder="Descrição do Projeto" required></textarea>
+            <input type="url" name="imagem_url" placeholder="URL da Imagem (opcional)">
+            <input type="url" name="video_url" placeholder="URL do Vídeo (opcional)">
+            <button type="submit">Adicionar Projeto</button>
+        </form>
+        <div id="projects" class="projects-container">
+            {% for projeto in projetos %}
+            <div class="project">
+                <h3>{{ projeto.nome }}</h3>
+                <p>{{ projeto.descricao }}</p>
+                {% if projeto.imagem_url %}
+                <img src="{{ projeto.imagem_url }}" alt="Imagem do Projeto">
+                {% endif %}
+                {% if projeto.video_url %}
+                <iframe width="560" height="315" src="{{ projeto.video_url }}" frameborder="0" allowfullscreen></iframe>
+                {% endif %}
+                <div class="project-links">
+                    <a href="{{ url_for('edit_project', project_id=projeto.id) }}">Editar</a>
+                    <a href="{{ url_for('delete_project', project_id=projeto.id) }}">Deletar</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

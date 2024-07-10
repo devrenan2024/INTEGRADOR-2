@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan Turing - Meu Blog Pessoal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Meu Blog Pessoal</h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('sobre') }}">Sobre mim</a>
+        <a href="{{ url_for('projetos_page') }}">Meus Projetos</a>
+        <a href="{{ url_for('contato') }}">Contato</a>
+        <a href="{{ url_for('blog') }}">Blog</a>
+        {% if session.get('logged_in') %}
+            <a href="{{ url_for('admin') }}">Admin</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+        {% endif %}
+    </nav>
+</header>
+
+<div class="container">
+    <article class="post">
+        <header>
+            <h2>Alan Turing: O Gênio da Computação</h2>
+            <p class="post-meta">Publicado em 9 de julho de 2024</p>
+        </header>
+        <div class="post-content">
+            <p>Alan Turing foi um dos mais influentes matemáticos e cientistas da computação do século XX. Conhecido por suas contribuições cruciais durante a Segunda Guerra Mundial, Turing desempenhou um papel fundamental no desenvolvimento da computação moderna e da inteligência artificial.</p>
+            <p>Sua ideia revolucionária da Máquina de Turing não só estabeleceu os fundamentos teóricos para os computadores como os conhecemos hoje, mas também ajudou a quebrar os códigos secretos nazistas, contribuindo diretamente para o esforço de guerra dos Aliados.</p>
+            <p>Além de suas realizações científicas, Turing enfrentou desafios pessoais significativos devido à sua sexualidade, enfrentando discriminação em uma época em que ser homossexual era ilegal no Reino Unido. Apesar desses obstáculos, seu legado continua a inspirar gerações de cientistas e inovadores em todo o mundo.</p>
+        </div>
+    </article>
+</div>
+
+<footer>
+    <p>&copy; 2024 Meu Blog Pessoal</p>
+</footer>
+
+</body>
+</html>
